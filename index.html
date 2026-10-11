@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Navratri My Love - Pritika ❤️</title>
+    
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Floating Background Lights/Sparkles -->
+    <div class="bg-lights" id="bgLights"></div>
+
+    <!-- Background Audio Element -->
+    <audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
+
+    <!-- Music Control Floating Button -->
+    <button class="music-toggle" id="musicBtn" onclick="toggleMusic()">
+        <i class="fas fa-music"></i>
+        <span id="musicText">Play Music 🎵</span>
+    </button>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="decor-arch"></div>
+        <div class="hero-content">
+            <div class="sparkle-title">✨ Happy Navratri ✨</div>
+            <h1 class="main-title">Priu ❤️</h1>
+            <p class="subtitle">May Goddess Durga bless our love with eternal joy, warmth, and togetherness.</p>
+            <button class="btn-primary" onclick="scrollToSection('diyaSection')">
+                <i class="fas fa-fire"></i> Light the Navratri Diya
+            </button>
+        </div>
+    </header>
+
+    <!-- Section 1: Virtual Diya Ceremony -->
+    <section class="section" id="diyaSection">
+        <div class="card-container">
+            <h2 class="section-title">✨ Virtual Diya Lighting ✨</h2>
+            <p class="section-desc">Click on the Diya below to light up our festival of love and blessings!</p>
+            
+            <div class="diya-wrapper" id="diyaWrapper" onclick="lightDiya()">
+                <div class="flame-glow" id="flameGlow"></div>
+                <div class="flame" id="flame"></div>
+                <div class="diya-base">🪔</div>
+            </div>
+            
+            <div class="diya-status" id="diyaStatus">Tap the Diya to light it ❤️</div>
+        </div>
+    </section>
+
+    <!-- Section 2: 9 Days of Love Notes -->
+    <section class="section" id="daysSection">
+        <h2 class="section-title">🌸 9 Days, 9 Special Blessings For You 🌸</h2>
+        <p class="section-desc">Click each avatar/color of Navratri to reveal a special note from my heart!</p>
+
+        <div class="grid-9">
+            <!-- Day 1 -->
+            <div class="day-card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front" style="background: linear-gradient(135deg, #fff5e6, #ffe0b2);">
+                        <span class="day-badge">Day 1</span>
+                        <div class="day-color-dot" style="background: #ffcc80;"></div>
+                        <h3>Shailaputri</h3>
+                        <p class="color-name">Orange / Yellow</p>
+                        <i class="fas fa-heart card-icon"></i>
+                    </div>
+                    <div class="card-back">
+                        <h4>Strength & Grace</h4>
+                        <p>Like Shailaputri, you bring immense warmth, hope, and strength into my life every single day.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="day-card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front" style="background: linear-gradient(135deg, #ffffff, #e0f2fe);">
+                        <span class="day-badge">Day 2</span>
+                        <div class="day-color-dot" style="background: #ffffff; border: 1px solid #ccc;"></div>
+                        <h3>Brahmacharini</h3>
+                        <p class="color-name">White</p>
+                        <i class="fas fa-heart card-icon"></i>
+                    </div>
+                    <div class="card-back">
+                        <h4>Pure & Divine</h4>
+                        <p>Your soul is as pure and serene as white. Loving you brings peace to my heart.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="day-card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front" style="background: linear-gradient(135deg, #ffebee, #ffcdd2);">
+                        <span class="day-badge">Day 3</span>
+                        <div class="day-color-dot" style="background: #e53935;"></div>
+                        <h3>Chandraghanta</h3>
+                        <p class="color-name">Red</p>
+                        <i class="fas fa-heart card-icon"></i>
+                    </div>
+                    <div class="card-back">
+                        <h4>Passionate Love</h4>
+                        <p>Red symbolizes power and deep passion. My heart beats only for you, my dearest Priu.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 4 -->
+            <div class="day-card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">
+                        <span class="day-badge">Day 4</span>
+                        <div class="day-color-dot" style="background: #8e24aa;"></div>
+                        <h3>Kushmanda</h3>
+                        <p class="color-name">Royal Blue / Purple</p>
+                        <i class="fas fa-heart card-icon"></i>
+                    </div>
+                    <div class="card-back">
+                        <h4>Sparkle & Joy</h4>
+                        <p>Your smile lights up the universe like the cosmic energy of Goddess Kushmanda!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 5 -->
+            <div class="day-card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front" style="background: linear-gradient(135deg, #fffde7, #fff9c4);">
+                        <span class="day-badge">Day 5</span>
+                        <div class="day-color-dot" style="background: #fdd835;"></div>
+                        <h3>Skandamata</h3>
+                        <p class="color-name">Yellow</p>
+                        <i class="fas fa-heart card-icon"></i>
+                    </div>
+                    <div class="card-back">
+                        <h4>Nurturing Care</h4>
+                        <p>Thank you for caring for me with so much kindness, love, and tenderness always.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 6 -->
+            <div class="day-card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">
+                        <span class="day-badge">Day 6</span>
+                        <div class="day-color-dot" style="background: #43a047;"></div>
+                        <h3>Katyayani</h3>
+                        <p class="color-name">Green</p>
+                        <i class="fas fa-heart card-icon"></i>
+                    </div>
+                    <div class="card-back">
+                        <h4>Growth & Harmony</h4>
+                        <p>With you, life feels like a beautiful blossoming garden full of growth, joy, and peace.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 7 -->
+            <div class="day-card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front" style="background: linear-gradient(135deg, #f5f5f5, #e0e0e0);">
+                        <span class="day-badge">Day 7</span>
+                        <div class="day-color-dot" style="background: #757575;"></div>
+                        <h3>Kalaratri</h3>
+                        <p class="color-name">Grey / Dark Blue</p>
+                        <i class="fas fa-heart card-icon"></i>
+                    </div>
+                    <div class="card-back">
+                        <h4>Protection</h4>
+                        <p>No matter what challenges come our way, I promise to always stand by your side and protect you.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 8 -->
+            <div class="day-card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">
+                        <span class="day-badge">Day 8</span>
+                        <div class="day-color-dot" style="background: #d81b60;"></div>
+                        <h3>Mahagauri</h3>
+                        <p class="color-name">Pink</p>
+                        <i class="fas fa-heart card-icon"></i>
+                    </div>
+                    <div class="card-back">
+                        <h4>Pure Radiance</h4>
+                        <p>Your kindness and beauty shine brighter than anything else in this world, my love.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 9 -->
+            <div class="day-card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2);">
+                        <span class="day-badge">Day 9</span>
+                        <div class="day-color-dot" style="background: #00acc1;"></div>
+                        <h3>Siddhidatri</h3>
+                        <p class="color-name">Peacock Green / Cyan</p>
+                        <i class="fas fa-heart card-icon"></i>
+                    </div>
+                    <div class="card-back">
+                        <h4>Fulfillment & Dreams</h4>
+                        <p>Having you in my life is the greatest fulfillment of all my wishes. Happy Navratri Priu!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Interactive Dandiya Rhythm Tap Game -->
+    <section class="section" id="gameSection">
+        <div class="card-container text-center">
+            <h2 class="section-title">💃 Play Garba Beats Together 🕺</h2>
+            <p class="section-desc">Tap the Dandiya sticks on time with the beats to celebrate our Navratri!</p>
+            
+            <div class="dandiya-stage" id="dandiyaStage" onclick="playDandiyaBeat(event)">
+                <div class="dandiya-stick stick-left" id="stickLeft">🥢</div>
+                <div class="dandiya-stick stick-right" id="stickRight">🥢</div>
+            </div>
+
+            <div class="score-board">
+                <span>Garba Beats: <strong id="scoreCount">0</strong> 🥁</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Romantic Love Letter -->
+    <section class="section" id="letterSection">
+        <div class="card-container text-center">
+            <h2 class="section-title">📜 A Secret Letter For Priu</h2>
+            <p class="section-desc">Click below to open the envelope and read my heart's message for you.</p>
+
+            <button class="btn-primary" onclick="openEnvelope()" style="margin-bottom: 25px;">
+                <i class="fas fa-envelope-open-text"></i> Open My Navratri Letter
+            </button>
+
+            <div class="letter-box" id="letterBox">
+                <div class="letter-content">
+                    <h3 style="font-family: 'Great Vibes', cursive; font-size: 2.2rem; color: #b71c1c; margin-bottom: 15px;">
+                        My Dearest Pritika (Priu),
+                    </h3>
+                    <p style="font-size: 1.05rem; line-height: 1.8; color: #4a148c; font-weight: 500;">
+                        As we celebrate these 9 divine days of Navratri, I want you to know how truly special and blessed I feel to have you in my life. You bring joy, light, and colorful energy into my world just like the vibrant colors of Garba.
+                        <br><br>
+                        May Maa Durga protect you, grant all your dreams, and keep us united with warmth, happiness, and eternal love.
+                        <br><br>
+                        <strong>Forever Yours ❤️</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Crafted with endless love for <strong>Pritika (Priu)</strong> ❤️ | Happy Navratri ✨</p>
+    </footer>
+
+    <!-- JavaScript Script -->
+    <script>
+        // Audio Logic using local music.mp3
+        const bgMusic = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        const musicText = document.getElementById('musicText');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (!isPlaying) {
+                bgMusic.play().then(() => {
+                    isPlaying = true;
+                    musicBtn.classList.add('playing');
+                    musicText.innerText = "Pause Music ⏸️";
+                }).catch(err => {
+                    console.log("Audio playback blocked or file missing:", err);
+                    alert("Music play karne ke liye 'music.mp3' file ko same folder me rakhein!");
+                });
+            } else {
+                bgMusic.pause();
+                isPlaying = false;
+                musicBtn.classList.remove('playing');
+                musicText.innerText = "Play Music 🎵";
+            }
+        }
+
+        // Virtual Diya Logic
+        let diyaLit = false;
+        function lightDiya() {
+            const flame = document.getElementById('flame');
+            const glow = document.getElementById('flameGlow');
+            const status = document.getElementById('diyaStatus');
+
+            if (!diyaLit) {
+                flame.style.display = 'block';
+                glow.style.display = 'block';
+                status.innerHTML = "✨ Maa Durga's Light is Shining for Us! Happy Navratri Priu! ✨";
+                status.style.color = "#d81b60";
+                diyaLit = true;
+
+                // Create celebratory sparkles
+                createBurstSparkles();
+                
+                // Auto play music on first diya light interaction if not already playing
+                if (!isPlaying) {
+                    toggleMusic();
+                }
+            }
+        }
+
+        // Card Flip
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+
+        // Smooth Scroll
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Dandiya Beat Game
+        let beatCount = 0;
+        function playDandiyaBeat(e) {
+            beatCount++;
+            document.getElementById('scoreCount').innerText = beatCount;
+
+            const left = document.getElementById('stickLeft');
+            const right = document.getElementById('stickRight');
+
+            left.classList.add('clash');
+            right.classList.add('clash');
+
+            setTimeout(() => {
+                left.classList.remove('clash');
+                right.classList.remove('clash');
+            }, 200);
+
+            // Visual Sparkle at Click Position
+            const stage = document.getElementById('dandiyaStage');
+            const rect = stage.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const spark = document.createElement('div');
+            spark.innerText = '✨';
+            spark.style.position = 'absolute';
+            spark.style.left = x + 'px';
+            spark.style.top = y + 'px';
+            spark.style.fontSize = '24px';
+            spark.style.pointerEvents = 'none';
+            spark.style.animation = 'floatUp 0.6s ease-out forwards';
+
+            stage.appendChild(spark);
+            setTimeout(() => spark.remove(), 600);
+        }
+
+        // Envelope Open Logic
+        function openEnvelope() {
+            const box = document.getElementById('letterBox');
+            box.classList.add('open');
+            createBurstSparkles();
+        }
+
+        // Sparkles Creator
+        function createBurstSparkles() {
+            for (let i = 0; i < 25; i++) {
+                const p = document.createElement('div');
+                p.innerText = ['🌸', '✨', '🪔', '❤️', '🌺'][Math.floor(Math.random() * 5)];
+                p.style.position = 'fixed';
+                p.style.left = Math.random() * 100 + 'vw';
+                p.style.top = '100vh';
+                p.style.fontSize = (16 + Math.random() * 20) + 'px';
+                p.style.zIndex = '999';
+                p.style.pointerEvents = 'none';
+                p.style.transition = 'transform 2.5s ease-out, opacity 2.5s';
+
+                document.body.appendChild(p);
+
+                setTimeout(() => {
+                    p.style.transform = `translate(${ (Math.random() - 0.5) * 200 }px, -${ 80 + Math.random() * 50 }vh) rotate(${Math.random() * 360}deg)`;
+                    p.style.opacity = '0';
+                }, 50);
+
+                setTimeout(() => p.remove(), 2600);
+            }
+        }
+
+        // Background floating lights creation
+        const lightsContainer = document.getElementById('bgLights');
+        for (let i = 0; i < 18; i++) {
+            const light = document.createElement('div');
+            light.classList.add('light-particle');
+            light.style.left = Math.random() * 100 + '%';
+            light.style.top = Math.random() * 100 + '%';
+            light.style.animationDelay = (Math.random() * 5) + 's';
+            light.style.animationDuration = (4 + Math.random() * 6) + 's';
+            lightsContainer.appendChild(light);
+        }
+    </script>
+</body>
+</html>
