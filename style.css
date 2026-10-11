@@ -1,0 +1,408 @@
+:root {
+    --primary-red: #d81b60;
+    --gold: #ffb300;
+    --warm-orange: #ff6f00;
+    --deep-purple: #4a148c;
+    --bg-gradient: linear-gradient(135deg, #fff3e0 0%, #fce4ec 50%, #f3e5f5 100%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-gradient);
+    color: #333;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Background Animated Lights */
+.bg-lights {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.light-particle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #ffeb3b 0%, rgba(255, 235, 59, 0) 70%);
+    border-radius: 50%;
+    animation: floatLight infinite ease-in-out;
+}
+
+@keyframes floatLight {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+    50% { transform: translateY(-30px) scale(1.5); opacity: 0.8; }
+}
+
+/* Floating Music Control */
+.music-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: linear-gradient(45deg, var(--primary-red), var(--warm-orange));
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(216, 27, 96, 0.4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.music-toggle:hover {
+    transform: scale(1.05);
+}
+
+.music-toggle.playing i {
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* Hero Section */
+.hero {
+    position: relative;
+    padding: 80px 20px 60px;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.sparkle-title {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: var(--warm-orange);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.main-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4.5rem;
+    color: var(--primary-red);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--warm-orange), var(--gold));
+    color: #fff;
+    border: none;
+    padding: 14px 32px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255, 111, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 111, 0, 0.5);
+}
+
+/* Section Styling */
+.section {
+    padding: 50px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.card-container {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 40px 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: var(--deep-purple);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section-desc {
+    text-align: center;
+    color: #666;
+    margin-bottom: 35px;
+}
+
+/* Virtual Diya */
+.diya-wrapper {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.diya-base {
+    font-size: 5rem;
+    line-height: 1;
+    z-index: 2;
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.15));
+}
+
+.flame {
+    position: absolute;
+    top: 5px;
+    width: 24px;
+    height: 38px;
+    background: radial-gradient(ellipse at bottom, #ffffff 0%, #ffee58 30%, #ff9800 60%, #f44336 100%);
+    border-radius: 50% 50% 20% 20% / 80% 80% 30% 30%;
+    z-index: 3;
+    animation: flicker 0.15s infinite alternate;
+    display: none;
+}
+
+.flame-glow {
+    position: absolute;
+    top: -15px;
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(circle, rgba(255, 179, 0, 0.6) 0%, rgba(255, 179, 0, 0) 70%);
+    border-radius: 50%;
+    z-index: 1;
+    display: none;
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+    0% { transform: scale(1) rotate(-1deg); }
+    100% { transform: scale(1.08) rotate(1deg); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.9); opacity: 0.6; }
+    100% { transform: scale(1.2); opacity: 0.9; }
+}
+
+.diya-status {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--warm-orange);
+    min-height: 30px;
+}
+
+/* Grid of 9 Days */
+.grid-9 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.day-card {
+    height: 200px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+}
+
+.day-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255,255,255,0.8);
+}
+
+.card-back {
+    background: #ffffff;
+    color: var(--deep-purple);
+    transform: rotateY(180deg);
+    border: 2px solid var(--gold);
+}
+
+.day-badge {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: rgba(0,0,0,0.06);
+    padding: 3px 8px;
+    border-radius: 10px;
+}
+
+.day-color-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+}
+
+.card-front h3 {
+    font-size: 1.25rem;
+    color: #222;
+    margin-bottom: 4px;
+}
+
+.color-name {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.card-icon {
+    color: var(--primary-red);
+    font-size: 1.2rem;
+}
+
+.card-back h4 {
+    font-size: 1.1rem;
+    color: var(--primary-red);
+    margin-bottom: 8px;
+}
+
+.card-back p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #444;
+}
+
+/* Dandiya Game Stage */
+.dandiya-stage {
+    height: 180px;
+    background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+    border-radius: 16px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    border: 2px dashed var(--primary-red);
+    margin-bottom: 15px;
+}
+
+.dandiya-stick {
+    font-size: 4rem;
+    transition: transform 0.1s ease;
+    user-select: none;
+}
+
+.stick-left {
+    transform: rotate(45deg) scaleX(-1);
+    margin-right: -10px;
+}
+
+.stick-right {
+    transform: rotate(-45deg);
+    margin-left: -10px;
+}
+
+.stick-left.clash {
+    transform: rotate(15deg) translate(20px, -10px) scaleX(-1);
+}
+
+.stick-right.clash {
+    transform: rotate(-15deg) translate(-20px, -10px);
+}
+
+.score-board {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--deep-purple);
+}
+
+/* Letter Box */
+.letter-box {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease-in-out, opacity 0.5s ease;
+    opacity: 0;
+    background: #fffdf9;
+    border: 2px solid #ffe0b2;
+    border-radius: 16px;
+    padding: 0 25px;
+}
+
+.letter-box.open {
+    max-height: 500px;
+    opacity: 1;
+    padding: 30px 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-40px) scale(1.4); opacity: 0; }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.95rem;
+    color: #666;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .main-title { font-size: 3.2rem; }
+    .section-title { font-size: 1.6rem; }
+    .music-toggle { top: 12px; right: 12px; padding: 10px 15px; font-size: 0.85rem; }
+}
